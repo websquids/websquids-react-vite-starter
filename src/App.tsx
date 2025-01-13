@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { useAppStore } from './store';
 
-function App() {
-  const [count, setCount] = useState(0)
+function Home() {
+  const { count, increment, decrement } = useAppStore();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className='p-4'>
+      <h1 className='text-2xl font-bold mb-4'>Home</h1>
+      <p className='mb-4'>Count: {count}</p>
+      <Button onClick={increment} className='mr-2'>
+        Increment
+      </Button>
+      <Button onClick={decrement}>Decrement</Button>
+    </div>
+  );
 }
 
-export default App
+function About() {
+  const { count } = useAppStore();
+
+  return (
+    <div className='p-4'>
+      <h1 className='text-2xl font-bold'>About</h1>
+      <p>Count: {count}</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <div className='p-4'>
+        <nav className='mb-4'>
+          <Link to='/' className='mr-4'>
+            Home
+          </Link>
+          <Link to='/about'>About</Link>
+        </nav>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
