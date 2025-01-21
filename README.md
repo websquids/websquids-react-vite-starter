@@ -1,50 +1,149 @@
-# React + TypeScript + Vite
+# websquids-react-vite-starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+**websquids-react-vite-starter** is a starter project designed for building modern web applications. It includes essential tooling and configuration to streamline development with React, TypeScript, Vite, TailwindCSS, and a collection of utilities to ensure code quality and performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Vite**: Lightning-fast build tool and dev server.
+- **React**: Latest React framework for building UI components.
+- **TypeScript**: Strongly typed development for scalable and maintainable code.
+- **TailwindCSS**: Utility-first CSS framework for fast UI styling.
+- **Zustand**: Simplified state management.
+- **ESLint**: Linter for maintaining consistent and error-free code.
+- **Prettier**: Code formatter for consistent style.
+- **Radix UI**: Accessible UI primitives.
+- **Lucide Icons**: Beautiful, customizable React icons.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## Requirements
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Node.js**: ^16.0.0
+- **pnpm**
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd websquids-react-vite-starter
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm i
+   ```
+
+---
+
+## Usage
+
+### Development
+
+Start the development server:
+
+```bash
+pnpm dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Build
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Build the project for production:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+pnpm build
 ```
+
+### Preview
+
+Preview the production build locally:
+
+```bash
+pnpm preview
+```
+
+### Lint
+
+Run ESLint to check for code quality issues:
+
+```bash
+pnpm lint
+```
+
+### Format Code
+
+Format code using Prettier:
+
+```bash
+pnpm format
+```
+
+### Fix Linting Issues
+
+Automatically fix lint issues:
+
+```bash
+pnpm lint:fix
+```
+
+---
+
+## Project Structure
+
+```plaintext
+.
+├── src/          # Source code
+├── public/       # Static assets
+├── package.json  # Project configuration
+├── vite.config.js # Vite configuration
+└── README.md     # Project documentation
+```
+
+---
+
+## Key Dependencies
+
+### Runtime
+
+- `react` & `react-dom`: ^19.0.0
+- `zustand`: State management
+- `tailwindcss`: Utility-first CSS
+- `lucide-react`: Icon library
+
+### Development
+
+- `vite`: Build tool
+- `typescript`: Type-checking
+- `eslint` & `prettier`: Code quality and formatting tools
+- `@vitejs/plugin-react`: Vite plugin for React
+
+---
+
+## Customization
+
+To configure TailwindCSS, modify the `tailwind.config.js` file in the root directory.
+
+---
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repository and submit a pull request.
+
+---
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+## Author
+
+Developed by [websquids LLC](https://websquids.com).
+
+For any questions or support, contact [info@websquids.com](mailto:info@websquids.com).
